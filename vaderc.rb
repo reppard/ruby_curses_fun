@@ -1,7 +1,5 @@
 require 'yaml'
-require_relative 'lib/window'
-require_relative 'lib/socket_reader'
-require_relative 'lib/socket_writer'
+Dir["lib/*.rb"].each{|file| require_relative file}
 
 class VadeRC
   def self.run set_config

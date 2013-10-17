@@ -1,0 +1,7 @@
+notice:
+  type:  NOTICE
+  color: RED
+
+'372':
+  type:  RPL_MOTD
+  color: BLUE
