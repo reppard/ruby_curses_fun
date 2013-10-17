@@ -1,0 +1,7 @@
+freenode:
+  server: irc.freenode.net
+  port:   6667
+
+skynet:
+  server: irc.skyn3t.us
+  port:   7001
