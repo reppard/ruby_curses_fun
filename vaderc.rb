@@ -1,11 +1,17 @@
 require 'yaml'
 Dir["lib/*.rb"].each{|file| require_relative file}
+class Session
+  attr_accessor :user
+end
+
+SESSION = Session.new
 
 class VadeRC
   def self.run set_config
       @config = YAML.load_file("config.yaml")
       blow_up if set_config.nil? || !@config.has_key?(set_config)
 
+      SESSION.user = @config[set_config]['user']
       server = @config[set_config]['server']
       port = @config[set_config]['port']
 
