@@ -1,0 +1,11 @@
+'PRIVMSG':
+  command:  PRIVMSG
+
+'MSG':
+  command:  PRIVMSG
+
+'P':
+  command:  PRIVMSG
+
+'WHOIS':
+  command:  WHOIS

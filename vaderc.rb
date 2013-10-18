@@ -1,7 +1,7 @@
 require 'yaml'
 Dir["lib/*.rb"].each{|file| require_relative file}
 class Session
-  attr_accessor :user
+  attr_accessor :user, :current_channel, :nick
 end
 
 SESSION = Session.new
