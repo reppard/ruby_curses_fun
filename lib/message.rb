@@ -5,7 +5,7 @@ class Message
   def initialize line
     @extracted = line.split(' ')
     @from   = @extracted[0]
-    @code   = @extracted[1]
+    @code   = CONFIG.has_key?(@from) ? @from : @extracted[1]
     @to     = @extracted[2]
     @format = get_format
   end
@@ -27,8 +27,17 @@ class Message
   end
 
   def build_string format
-    has_header? ? CONFIG[@code]['header']+format.collect{|index| @extracted[index]}.join(' ')+"\n\n"
-                : format.collect{|index| @extracted[index]}.join(' ')+"\n"
+    if has_template?
+      template = CONFIG[@code]['template']
+      format.each do |entry|
+        content = @extracted[entry]
+        content = content.join(' ') if content.class == Array
+        template.gsub!(/entry#{format.find_index(entry)}/,content)
+      end
+      template
+    else
+      format.collect{|index| @extracted[index]}.join(' ')+"\n"
+    end
   end
 
   def default_format
@@ -36,11 +45,15 @@ class Message
     #self.extracted.join(' ')+"\n"
   end
 
+  def has_template?
+    CONFIG[@code] && CONFIG[@code]['template']
+  end
+
   def has_format?
     CONFIG[@code] && CONFIG[@code]['format']
   end
 
   def has_header?
-    CONFIG[@code] && CONFIG[@code]['header'] 
+    CONFIG[@code] && CONFIG[@code]['header']
   end
 end

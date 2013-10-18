@@ -4,20 +4,25 @@ NOTICE:
 
 MODE:
   type:  MODE
-  format: [3..-1] 
+  format: [3..-1]
 
 PING:
   type:  PING
-  format: [] 
+  format: []
+
+'311':
+  type:     RPL_WHOISUSER
+  format:   [3,4,5]
+  template: "WHOIS: entry0 entry1@entry2\n" 
 
 '353':
   type:  RPL_NAMREPLY
   format: [4,5..-1]
-  header: "Names in Channel: "
+  template: "Names in Channel: entry0: entry1\n"
 
 '372':
   type:  RPL_MOTD
-  format: [3..-1] 
+  format: [3..-1]
 
 '376':
   type: RPL_ENDOFMOTD
