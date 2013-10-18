@@ -18,6 +18,8 @@ class SocketReader
         @window.mainContent.refresh
       end
     end
+    ensure
+      @window.mainFrame.close && @socket.close
   end
 
   def pong(line)
