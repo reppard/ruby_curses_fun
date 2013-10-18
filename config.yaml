@@ -1,7 +1,17 @@
 freenode:
   server: irc.freenode.net
   port:   6667
+  user:
+    username:     guest
+    mode:         8
+    realname:     vadeRc User
+    default_nick: vadeRcUser
 
 skynet:
   server: irc.skyn3t.us
   port:   7001
+  user:
+    username:     guest
+    mode:         8
+    realname:     vadeRc User
+    default_nick: vadeRcUser

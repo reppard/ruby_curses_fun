@@ -28,8 +28,9 @@ class SocketReader
   end
 
   def authen
-    @socket.sendmsg("NICK vadercUser\r\n",0)
-    @socket.sendmsg("USER testUserDude 8 #{`hostname`.chomp} : Test User\r\n",0)
+    user = SESSION.user
+    @socket.sendmsg("NICK #{user['default_nick']}\r\n",0)
+    @socket.sendmsg("USER #{user['username'] || `who`.split(' ').first} #{user['mode']} #{`hostname`.chomp} : #{user['realname']}\r\n",0)
   end
 
   def handle_message(line)
