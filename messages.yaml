@@ -1,7 +1,23 @@
-notice:
+NOTICE:
   type:  NOTICE
-  color: RED
+
+MODE:
+  type:  MODE
+  format: [3..-1] 
+
+'353':
+  type:  RPL_NAMREPLY
+  format: [4,5..-1]
+  header: "Names in Channel: "
 
 '372':
   type:  RPL_MOTD
-  color: BLUE
+  format: [3..-1] 
+
+'376':
+  type: RPL_ENDOFMOTD
+  format: [3..-1]
+
+'421':
+  type: ERR_UNKNOWNCOMMAND
+  format: [4..-1,3]
