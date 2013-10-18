@@ -1,9 +1,14 @@
 NOTICE:
-  type:  NOTICE
+  type:   NOTICE
+  format: [3..-1]
 
 MODE:
   type:  MODE
   format: [3..-1] 
+
+PING:
+  type:  PING
+  format: [] 
 
 '353':
   type:  RPL_NAMREPLY
