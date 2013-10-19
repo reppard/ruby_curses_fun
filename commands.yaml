@@ -9,3 +9,6 @@
 
 'WHOIS':
   command:  WHOIS
+
+'QUIT':
+  command:  QUIT
