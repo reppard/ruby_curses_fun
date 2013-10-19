@@ -1,9 +1,8 @@
 class Command
   attr_accessor :line, :socket, :payload
   CONFIG = YAML.load_file("commands.yaml")
-  def initialize line, socket
+  def initialize line
     @line = line.chomp
-    @socket = socket
     @payload = is_command? ? process_command : @line
   end
 

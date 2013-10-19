@@ -1,14 +1,14 @@
 'PRIVMSG':
   command:  PRIVMSG
-
 'MSG':
   command:  PRIVMSG
-
 'P':
   command:  PRIVMSG
-
 'WHOIS':
   command:  WHOIS
-
 'QUIT':
   command:  QUIT
+'JOIN':
+  command:  JOIN
+'J':
+  command:  JOIN
