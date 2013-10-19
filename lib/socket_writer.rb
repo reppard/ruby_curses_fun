@@ -10,7 +10,7 @@ class SocketWriter
   def read_from_client
     loop do
       line = @window.inputSpace.getstr
-      msg = Command.new(line, @socket)
+      msg = Command.new(line)
       @socket.sendmsg("#{msg.payload}\r\n",0)
       @window.inputSpace.clear
       @window.mainContent.refresh
