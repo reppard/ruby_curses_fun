@@ -28,7 +28,6 @@ class SocketReader
   end
 
   def authen
-    @window.mainContent.addstr(SESSION.inspect)
     @socket.sendmsg("NICK #{SESSION.nick}\r\n",0)
     @socket.sendmsg("USER #{SESSION.username} #{SESSION.mode} #{`hostname`.chomp} : #{SESSION.realname}\r\n",0)
   end
