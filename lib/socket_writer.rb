@@ -8,12 +8,16 @@ class Command
   end
 
   def is_command?
-    @line[0] == "/" && CONFIG.has_key?(@line.split(' ').first.gsub(/^\//,''))
+    @line[0] == "/" && CONFIG.has_key?(stripped_cmd)
   end
 
   def process_command
     cmd_alias, *body = @line.split(' ')
-    "#{CONFIG[cmd_alias.gsub(/^\//,'').upcase]['command']} #{body.join(' ')}"
+    "#{CONFIG[stripped_cmd]['command']} #{body.join(' ')}"
+  end
+
+  def stripped_cmd
+    @line.split(' ').first.gsub(/^\//,'').upcase
   end
 end
 
