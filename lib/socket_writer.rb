@@ -15,6 +15,8 @@ class SocketWriter
       @window.inputSpace.clear
       @window.mainContent.refresh
     end
+  ensure
+    @window.mainContent.close
   end
 
 end

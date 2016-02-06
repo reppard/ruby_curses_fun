@@ -12,8 +12,8 @@ class SocketReader
   def read_from_server
     Thread.new do
       while line = @socket.gets
-        handle_message(line) if !line.nil?
-        authen     if line =~ /Found your hostname/
+        handle_message(line) if line
+        authen     if line =~ /hostname/
         pong(line) if line =~ /PING/
         @window.mainContent.refresh
       end

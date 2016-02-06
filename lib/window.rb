@@ -7,7 +7,7 @@ class Window
 
   def initialize
     rows, columns = $stdin.winsize
-    @socket = ""
+    @socket      = ""
     @mainFrame   = Curses::Window.new(rows, columns, 0, 0)
     @mainContent = @mainFrame.subwin(rows - 4, columns - 26, 1, 3)
     @nickFrame   = @mainFrame.subwin(rows - 4, 20, 1, columns - 22)
